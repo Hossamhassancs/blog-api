@@ -4,13 +4,13 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.all
+    @posts = current_user.todos
     json_response(@posts)
   end
 
   # POST /posts
   def create
-    @post = Post.create!(post_params)
+    @post = current_user.posts.create!(post_params)
     json_response(@post, :created)
   end
 
