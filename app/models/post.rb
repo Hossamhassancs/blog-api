@@ -7,4 +7,3 @@ class Post < ApplicationRecord
 
 end
 
-mkdir spec/requests && touch spec/requests/{posts_spec.rb,_spec.rb} 
