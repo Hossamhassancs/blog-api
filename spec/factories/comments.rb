@@ -1,6 +1,6 @@
 FactoryBot.define do
     factory :comment do
-      name { Faker::StarWars.character }
+      name { Faker::Lorem.word }
       body { Faker::Lorem.word }
       post_id nil
     end
