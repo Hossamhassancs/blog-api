@@ -2,13 +2,15 @@ require 'rails_helper'
 
 RSpec.describe 'Posts API', type: :request do
   # initialize test data 
-  let!(:posts) { create_list(:post, 10) }
+  let(:user) {create(:user)}
+  let!(:posts) { create_list(:post, 10, user: user) }
   let(:post_id) { posts.first.id }
+  let(:headers) { valid_headers }
 
   # Test suite for GET /posts
   describe 'GET /posts' do
     # make HTTP get request before each example
-    before { get '/posts' }
+    before { get '/posts', params: {}, headers: headers }
 
     it 'returns posts' do
       # Note `json` is a custom helper to parse JSON responses
@@ -23,10 +25,11 @@ RSpec.describe 'Posts API', type: :request do
 
   # Test suite for GET /posts/:id
   describe 'GET /posts/:id' do
-    before { get "/posts/#{post_id}" }
+    before { get "/posts/#{post_id}" ,params: {}, headers: headers}
 
     context 'when the record exists' do
       it 'returns the post' do
+
         expect(json).not_to be_empty
         expect(json['id']).to eq(post_id)
       end
@@ -55,9 +58,10 @@ RSpec.describe 'Posts API', type: :request do
     let(:valid_attributes) { { title: 'Learn Elm', body: '1' } }
 
     context 'when the request is valid' do
-      before { post '/posts', params: valid_attributes }
+      before { post '/posts', params: valid_attributes , headers: headers }
 
       it 'creates a post' do
+        byebug
         expect(json['title']).to eq('Learn Elm')
       end
 

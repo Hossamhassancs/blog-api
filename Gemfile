@@ -56,4 +56,4 @@ gem 'jwt'
 gem 'sidekiq', '~> 3.0.0'
 gem 'sidekiq-ent', '~> 0.0.1'
 gem 'sidekiq-cron'
-
+gem 'awesome_print'
