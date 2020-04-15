@@ -1,19 +1,16 @@
 class TagsController < ApplicationController
   before_action :set_tag, only: [:show, :update, :destroy]
 
-  # GET /tags
   def index
-    @tags = Tag.all
+    @tags = Tag.posts
 
     render json: @tags
   end
 
-  # GET /tags/1
   def show
     render json: @tag
   end
 
-  # POST /tags
   def create
     @tag = Tag.new(tag_params)
 
@@ -24,7 +21,6 @@ class TagsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /tags/1
   def update
     if @tag.update(tag_params)
       render json: @tag
