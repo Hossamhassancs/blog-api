@@ -35,7 +35,7 @@ class PostsController < ApplicationController
 
   def post_params
     # whitelist params
-    params.permit(:title, :body)
+    params.permit(:title, :body , :tag_list)
   end
 
   def set_post
