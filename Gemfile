@@ -53,7 +53,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
-gem 'sidekiq', '~> 3.0.0'
+gem 'sidekiq', '~> 5.2.0'
 gem 'sidekiq-ent', '~> 0.0.1'
 gem 'sidekiq-cron'
 gem 'awesome_print'
